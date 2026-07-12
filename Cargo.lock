@@ -385,6 +385,33 @@ dependencies = [
 ]
 
 [[package]]
+name = "hyperlog-core"
+version = "0.1.0"
+dependencies = [
+ "opentelemetry",
+ "opentelemetry-otlp",
+ "opentelemetry_sdk",
+ "prost",
+ "serde",
+ "serde_yaml",
+ "tokio",
+ "tonic",
+ "tracing",
+ "tracing-core",
+ "tracing-opentelemetry",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "hyperlog-python"
+version = "0.1.0"
+dependencies = [
+ "hyperlog-core",
+ "pyo3",
+ "tracing",
+]
+
+[[package]]
 name = "indexmap"
 version = "1.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -520,25 +547,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7957b9740744892f114936ab4a57b3f487491bbeafaf8083688b16841a4240e5"
 dependencies = [
  "windows-sys 0.61.2",
-]
-
-[[package]]
-name = "omnilog"
-version = "0.1.0"
-dependencies = [
- "opentelemetry",
- "opentelemetry-otlp",
- "opentelemetry_sdk",
- "prost",
- "pyo3",
- "serde",
- "serde_yaml",
- "tokio",
- "tonic",
- "tracing",
- "tracing-core",
- "tracing-opentelemetry",
- "tracing-subscriber",
 ]
 
 [[package]]

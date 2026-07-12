@@ -1,5 +1,5 @@
 import logging
-import omnilog
+import hyperlog
 
 class OmniLogHandler(logging.Handler):
     """
@@ -12,7 +12,7 @@ class OmniLogHandler(logging.Handler):
             msg = self.format(record)
             
             # Send the record level (10, 20, 30, etc.) and the message to Rust
-            omnilog.log_record(record.levelno, msg)
+            hyperlog.log_record(record.levelno, msg)
         except Exception:
             self.handleError(record)
 
@@ -21,7 +21,7 @@ def auto_instrument(config_path: str):
     Initializes the native telemetry engine and hijacks Python's root logger.
     """
     # 1. Initialize Rust Engine
-    omnilog.init_telemetry(config_path)
+    hyperlog.init_telemetry(config_path)
     
     # 2. Hijack the Python logging system
     root_logger = logging.getLogger()
@@ -31,9 +31,9 @@ def auto_instrument(config_path: str):
         root_logger.removeHandler(handler)
         
     # Attach our native Rust bridge handler
-    omnilog_handler = OmniLogHandler()
-    omnilog_handler.setFormatter(logging.Formatter('%(message)s'))
-    root_logger.addHandler(omnilog_handler)
+    hyperlog_handler = OmniLogHandler()
+    hyperlog_handler.setFormatter(logging.Formatter('%(message)s'))
+    root_logger.addHandler(hyperlog_handler)
     
     # Set the root logger to capture all levels; the Rust engine will filter based on telemetry.yaml
     root_logger.setLevel(logging.DEBUG)

@@ -1,32 +1,6 @@
-[package]
-name = "omnilog"
-version = "0.1.0"
-edition = "2021"
-
-[lib]
-name = "omnilog"
-crate-type = ["cdylib", "rlib"]
-
-[dependencies]
-# Configuration
-serde = { version = "1.0", features = ["derive"] }
-serde_yaml = "0.9"
-
-# Telemetry
-tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
-tracing-opentelemetry = "0.27"
-tracing-core = "0.1"
-
-# OpenTelemetry Exporters
-opentelemetry = "0.26"
-opentelemetry_sdk = { version = "0.26", features = ["rt-tokio"] }
-opentelemetry-otlp = { version = "0.26", features = ["grpc-tonic"] }
-tonic = "0.12"
-prost = "0.13"
-
-# Async Runtime
-tokio = { version = "1.0", features = ["full"] }
-
-# Python Bindings
-pyo3 = { version = "0.21", features = ["extension-module", "abi3-py38"] }
+[workspace]
+members = [
+    "crates/hyperlog-core",
+    "crates/hyperlog-python"
+]
+resolver = "2"

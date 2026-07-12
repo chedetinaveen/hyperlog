@@ -1,0 +1,13 @@
+[package]
+name = "hyperlog-python"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "hyperlog"
+crate-type = ["cdylib"]
+
+[dependencies]
+hyperlog-core = { path = "../hyperlog-core" }
+pyo3 = { version = "0.21", features = ["extension-module", "abi3-py38"] }
+tracing = "0.1"

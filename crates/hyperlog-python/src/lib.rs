@@ -1,5 +1,5 @@
-pub mod config;
-pub mod telemetry;
+use hyperlog_core::config;
+use hyperlog_core::telemetry;
 
 use pyo3::prelude::*;
 use pyo3::wrap_pyfunction;
@@ -48,7 +48,7 @@ fn log_record(level: u8, message: String) {
 /// the `lib.name` setting in the `Cargo.toml`, else Python will not be able to
 /// import the module.
 #[pymodule]
-fn omnilog(_py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn hyperlog(_py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(init_telemetry, m)?)?;
     m.add_function(wrap_pyfunction!(log_info, m)?)?;
     m.add_function(wrap_pyfunction!(log_error, m)?)?;

@@ -1,5 +1,5 @@
 import logging
-from omnilog_auto import auto_instrument
+from hyperlog_auto import auto_instrument
 import time
 
 def main():

@@ -21,7 +21,7 @@ The telemetry space is incredibly crowded with major players like **OpenTelemetr
 ### 3. The "Boilerplate" Problem
 **The Competitor:** Setting up standard OpenTelemetry in Python requires installing 5 to 10 different pip packages (`opentelemetry-api`, `opentelemetry-sdk`, `opentelemetry-exporter-otlp`, `opentelemetry-instrumentation-logging`) and writing 50 lines of complex initialization code.
 
-**The OmniLog Difference:** A single `pip install omnilog`, a single `telemetry.yaml` file, and one line of code: `omnilog_auto.auto_instrument("telemetry.yaml")`.
+**The OmniLog Difference:** A single `pip install hyperlog`, a single `telemetry.yaml` file, and one line of code: `hyperlog_auto.auto_instrument("telemetry.yaml")`.
 
 ---
 
@@ -29,7 +29,7 @@ The telemetry space is incredibly crowded with major players like **OpenTelemetr
 
 ### 1. Install
 ```bash
-pip install omnilog
+pip install hyperlog
 ```
 
 ### 2. Configure (`telemetry.yaml`)
@@ -54,7 +54,7 @@ Just call `auto_instrument` once at the start of your application. All standard 
 
 ```python
 import logging
-from omnilog_auto import auto_instrument
+from hyperlog_auto import auto_instrument
 
 # Hijack standard Python logging
 auto_instrument("telemetry.yaml")
