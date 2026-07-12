@@ -1,0 +1,13 @@
+service:
+  name: "example-python-service"
+  environment: "development"
+logs:
+  level: "info"
+  exporters:
+    - type: "stdout"
+      format: "json"
+traces:
+  sample_rate: 1.0
+  exporters:
+    - type: "otlp"
+      endpoint: "http://localhost:4317"
