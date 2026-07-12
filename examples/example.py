@@ -2,7 +2,7 @@ import hyperlog
 import time
 
 def main():
-    print("Initializing OmniLog native extension...")
+    print("Initializing HyperLog native extension...")
     hyperlog.init_telemetry("telemetry.yaml")
     
     print("Emitting logs via native extension...")

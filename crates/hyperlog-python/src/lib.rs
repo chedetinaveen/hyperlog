@@ -48,7 +48,7 @@ fn log_record(level: u8, message: String) {
 /// the `lib.name` setting in the `Cargo.toml`, else Python will not be able to
 /// import the module.
 #[pymodule]
-fn hyperlog(_py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn _hyperlog(_py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(init_telemetry, m)?)?;
     m.add_function(wrap_pyfunction!(log_info, m)?)?;
     m.add_function(wrap_pyfunction!(log_error, m)?)?;

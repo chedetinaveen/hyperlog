@@ -54,7 +54,7 @@ Just call `auto_instrument` once at the start of your application. All standard 
 
 ```python
 import logging
-from hyperlog_auto import auto_instrument
+from hyperlog import auto_instrument
 
 # Hijack standard Python logging
 auto_instrument("telemetry.yaml")
